@@ -5,6 +5,9 @@ param (
     [string]$Hostname,
 
     [Parameter(Mandatory=$true)]
+    [string]$Company,
+
+    [Parameter(Mandatory=$true)]
     [string]$Username,
 
     [Parameter(Mandatory=$true)]
@@ -25,6 +28,7 @@ try{
     }
 
     #Set the username and password within the created registry key
+    Set-ItemProperty -Path $registryPath -Name "company" -Value $Company
     Set-ItemProperty -Path $registryPath -Name "username" -Value $Username
     Set-ItemProperty -Path $registryPath -Name "password" -Value $Password
     Set-ItemProperty -Path $registryPath -Name "date" -Value $currentDate

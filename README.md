@@ -14,8 +14,9 @@
 
 Ez a powershell script arra szolgál, hogy az átadott paraméterek alapján létrehozzon egy kulcsot a regisztrációs adatbázisban, majd ezután elhelyezzen egy parancsikont az aktuálisan belépett user asztalán, ami meghívja az adatküldő (SendHostData.ps1) scriptet megfelelő paraméterekkel.
 
-Három kötelező bemeneti string paraméterrel rendelkezik, ezek mindegyike szükséges ahhoz, hogy megfelelően működjön.
+A következő bemeneti string paraméterrel rendelkezik, ezek mindegyike szükséges ahhoz, hogy megfelelően működjön.
 
+- `Company`: annak a cégnek a neve, amelyikhez tartozik a hibás számítógép, amire hibát szeretnénk rögzíteni.
 - `Hostname`: annak a hostnak a neve, amelyre vonatkozóan szeretnénk bejegyzéseket rögzíteni.
 - `Username`: annak a usernek a neve, akit szeretnénk az adott hostra beállítani, mint username
 - `Password`: annak a usernek a jelszava, amelyet szeretnénk az adott hoston használni. `Figyelem: a jelszót titkosítás nélküli plain-textben tárolja regisztrációs adatbázis, bárki, aki hozzáfér a regisztrációs adatbázishoz, olvashatja azt!`
@@ -29,7 +30,7 @@ Három kötelező bemeneti string paraméterrel rendelkezik, ezek mindegyike sz�
 Nyissuk meg a powershell scriptet admin jogokkal, majd futtasuk a következő parancsot:
 
 ```
-.\SetHostData.ps1 -Hostname "elso-gep" -Username "elso-felhasznalo" -Password "titkosjelszo"
+.\SetHostData.ps1 -Hostname "elso-gep" -Company "cégnév" -Username "elso-felhasznalo" -Password "titkosjelszo"
 ```
 ---
 ### SendHostData (SendHostData.ps1)

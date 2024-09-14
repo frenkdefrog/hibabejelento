@@ -13,6 +13,7 @@ try {
     write-host "Reading host authentication data: $Hostname"
     $username = (Get-ItemProperty -Path $registryPath -Name "Username").Username
     $password = (Get-ItemProperty -Path $registryPath -Name "Password").Password
+    $company = (Get-ItemProperty -Path $registryPath -Name "Company").Company
    
     
     $url = "<remote form action target url comes here>"
@@ -32,6 +33,7 @@ try {
 <body onload="submitForm()">
     <form id="loginForm" action="$url" method="post">
         <input type="hidden" name="username" value="$username">
+        <input type="hidden" name="ceg" value="$company">
         <input type="hidden" name="pass" value="$password">
         <noscript>
             <p>JavaScript is disabled in your browser. Please enable it to automatically submit the form.</p>
